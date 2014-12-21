@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+
+.footer-inner {
+    padding: 10px;
+    border-top: 1px dotted #ccc;
+}
+    .footer-copyright {
+        font-size: 80%;
+        font-weight: bold;
+    }
+

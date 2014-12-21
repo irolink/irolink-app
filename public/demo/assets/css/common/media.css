@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+
+@media screen and (min-width: 980px) {
+    #pagebody {
+        clear: both;
+    }
+    #main {
+        float: left;
+        text-align: left;
+        width: 470px;
+    }
+    #menu {
+        float: right;
+        text-align: left;
+        width: 320px;
+        margin-top: 29px;
+    }
+        .menu-inner {
+        }
+}

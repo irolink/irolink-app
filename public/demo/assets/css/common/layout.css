@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+
+.container {
+    margin: 0 auto;
+    background: #ececec url(https://dl.dropboxusercontent.com/u/5196102/tmp/images/bg-pattern_maze-white.png) repeat 0 0;
+    position: relative;
+}
+
+#header {
+    border-bottom: 2px solid #ddd;
+    box-shadow: 0 2px 20px 0 rgba(0, 0, 0, .1);
+    background: #ddd url(https://dl.dropboxusercontent.com/u/5196102/tmp/images/bg-pattern_swirl.png) repeat 0 0;
+    /*background: #ddd url(images/bg-pattern_swirl.png) repeat 0 0;*/
+    opacity: .8;
+    position: fixed;
+    width: 100%;
+}
+    #header:hover {
+        opacity: 1;
+    }
+
+
+#pagebody {
+    /*background-color: #f0f0f0;*/
+    max-width: 840px;
+    margin: 0 auto;
+}
+
+
+#footer {
+    /*background-color: #f9f9f9;*/
+    /*box-shadow: 0 2px 5px 1px rgba(0, 0, 0, .1);*/
+    color: #999;
+    font-size: 90%;
+    max-width: 840px;
+    margin: 0 auto;
+    clear: both;
+}
+

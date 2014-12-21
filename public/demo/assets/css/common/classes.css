@@ -1,0 +1,133 @@
+@charset "UTF-8";
+
+
+.cl:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+.cl { display: inline-table; }
+/* Hides from IE-mac \*/
+* html .cl { height: 1%; }
+.cl { display: block; }
+/* End hide from IE-mac */
+
+
+.color-content {
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: #fdfdfd;
+    border: 1px solid #fefefe;
+    box-shadow: 0 0 0 5px rgba(150, 150, 150, .1), 0 1px 3px rgba(50, 50, 50, .3), 0 5px 10px rgba(200, 200, 200, .1) inset;
+    color: #888;
+}
+    .color-headline {
+        font-size: 14px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        margin-top: 20px;
+        color: #999;
+    }
+    .margin-top-none {
+        margin-top: 0;
+    }
+    .color-description {
+        font-size: 80%;
+    }
+    .color-sentence {
+        margin-bottom: 10px;
+        color: #888;
+    }
+
+
+.color-code-table {
+    width: 100%;
+    display: table;
+    font-size: 90%;
+}
+    .color-code-table li {
+        display: table-row;
+        background-color: #f5f5f5;
+    }
+    .color-code-table li:nth-child(odd) {
+        background-color: #f8f8f8;
+    }
+        .color-code-table li span {
+            display: table-cell;
+            padding: 5px 7.5px;
+            font-size: 12px;
+        }
+        .color-code-name {
+        }
+        .color-code-value {
+        }
+        .color-code-input {
+        }
+
+.color-schemes {
+    font-size: 90%;
+}
+    .color-scheme-list {
+        display: block;
+        border: 1px solid #ddd;
+        padding: 2px;
+    }
+    .color-scheme-title {
+        font-weight: normal;
+        padding: 0 0 0 5px;
+        font-size: 12px;
+    }
+        .color-scheme-item {
+            display: block;
+        }
+            .color-scheme-item a {
+                padding: 10px;
+                display: block;
+            }
+
+
+.line-1st {
+    border-top: 2px solid #ddd;
+}
+.line-2nd {
+    border-top: 1px solid #ccc;
+}
+
+
+[class^="split-"] {
+    width: 100%;
+    display: table;
+}
+    .split-2 li {
+        width: 50%;
+        display: table-cell;
+    }
+    .split-3 li {
+        width: 33.3%;
+        display: table-cell;
+    }
+    .split-4 li {
+        width: 25.0%;
+        display: table-cell;
+    }
+    .split-5 li {
+        width: 20.0%;
+        display: table-cell;
+    }
+    .split-6 li {
+        width: 16.6%;
+        display: table-cell;
+    }
+
+
+.invisible-text {
+    text-indent: -9999px;
+    text-align: center;
+}
+    .invisible-text:hover {
+        text-indent: 0;
+        color: #333;
+    }
+
