@@ -1,1 +1,1 @@
-web: gunicorn irolink-web:app --log-file -
+web: gunicorn src.irolink-web --log-file -
