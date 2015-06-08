@@ -1,21 +1,21 @@
-from flask import Flask
+from flask import Flask, render_template
 from jinja2 import FileSystemLoader
 import re
 
 app = Flask(__name__, static_url_path='')
 app.jinja_loader = FileSystemLoader('views')
 
-@app.route("/assets/<path:path>")
+@app.route('/assets/<path:path>')
 def send_assets(path):
-    return send_from_directory('static', path)
+    return send_from_directory('static/assets', path)
 
-@app.route("/favicon.ico")
-def send_favicon(path):
-    return send_from_directory('static', path)
+@app.route('/favicon.ico')
+def send_favicon():
+    return app.send_static_file('favicon.ico')
 
-@app.route("/robots.txt")
-def send_robots(path):
-    return send_from_directory('static', path)
+@app.route('/robots.txt')
+def send_robots():
+    return app.send_static_file('robots.txt')
 
 @app.route("/")
 def root():
