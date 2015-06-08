@@ -7,9 +7,8 @@ app.jinja_loader = FileSystemLoader('views')
 @app.route("/")
 def hello():
     return render_template(
-        "test.html.j2",
-        meta = meta,
-        colorcode = colorcode
+        "test.html",
+        name = "hoge"
     )
 
 @app.route("/rgb-hex/<colorcode>")
