@@ -4,7 +4,7 @@ python:
 before_script:
   - pip install -r src/web/requirements.txt
 script:
-  - python -m unittest discover -s tests/ -p '*_test.py'
+  #- python -m unittest discover -s tests/ -p '*_test.py'
 notifications:
   email:
     recipients: project.irolink@gmail.com
