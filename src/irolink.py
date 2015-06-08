@@ -25,7 +25,7 @@ def root():
     )
 
 @app.route('/test/')
-def root():
+def show_test():
     return render_template("test.html")
 
 @app.route("/rgb-hex/<colorcode>")
