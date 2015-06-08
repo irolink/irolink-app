@@ -1,6 +1,6 @@
 language: python
 python:
-  - 2.7
+  - 2.7.9
 before_script:
   - pip install -r src/web/requirements.txt
 script:
