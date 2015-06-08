@@ -1,9 +1,11 @@
 from flask import Flask, render_template
+https://irolink-app.herokuapp.com/assets/js/script.js
+https://irolink-app.herokuapp.com/assets/js/script.js
 from jinja2 import FileSystemLoader
 import re
 
 app = Flask(__name__, static_url_path='')
-app.jinja_loader = FileSystemLoader('views')
+#app.jinja_loader = FileSystemLoader('views')
 
 @app.route('/assets/<path:path>')
 def send_assets(path):
@@ -17,12 +19,16 @@ def send_favicon():
 def send_robots():
     return app.send_static_file('robots.txt')
 
-@app.route("/")
+@app.route('/')
 def root():
     return render_template(
         "test.html",
         name = "hoge"
     )
+
+@app.route('/test/')
+def root():
+    return render_template("test.html")
 
 @app.route("/rgb-hex/<colorcode>")
 def color_detail_rgb_hex(colorcode):
