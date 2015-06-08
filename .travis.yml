@@ -2,7 +2,7 @@ language: python
 python:
   - 2.7
 before_script:
-  - pip install -r requirements.txt
+  - pip install -r src/web/requirements.txt
 script:
   - python -m unittest discover -s tests/ -p '*_test.py'
 notifications:
