@@ -5,6 +5,10 @@ before_script:
   - pip install -r src/web/requirements.txt
 script:
   #- python -m unittest discover -s tests/ -p '*_test.py'
+deploy:
+  provider: heroku
+  app: irolink-app
+  api_key: 
 notifications:
   email:
     recipients: project.irolink@gmail.com
