@@ -1,1 +1,1 @@
-web: gunicorn --pythonpath=./src app.irolink:app --log-file -
+web: gunicorn --pythonpath=./src irolink:app --log-file -
