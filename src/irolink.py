@@ -1,7 +1,5 @@
-from flask import Flask, render_template
-https://irolink-app.herokuapp.com/assets/js/script.js
-https://irolink-app.herokuapp.com/assets/js/script.js
-from jinja2 import FileSystemLoader
+from flask import Flask, request, redirect, render_template, url_for
+#from jinja2 import FileSystemLoader
 import re
 
 app = Flask(__name__, static_url_path='')
