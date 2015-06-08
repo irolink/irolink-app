@@ -9,6 +9,8 @@ deploy:
   provider: heroku
   app: irolink-app
   api_key: $HEROKU_API_KEY
+  on:
+    repo: irolink/irolink-app
 notifications:
   email:
     recipients: project.irolink@gmail.com
