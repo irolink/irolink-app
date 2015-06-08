@@ -7,6 +7,6 @@ script:
   - python -m unittest discover -s tests/ -p '*_test.py'
 notifications:
   email:
-    recipients: irolink@gmail.com
+    recipients: project.irolink@gmail.com
     on_success: always # [always|never|change]
     on_failure: always # [always|never|change]
