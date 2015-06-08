@@ -2,10 +2,15 @@ from flask import Flask
 import re
 
 app = Flask(__name__)
+app.jinja_loader = FileSystemLoader('views')
 
 @app.route("/")
 def hello():
-    return "Hello World!"
+    return render_template(
+        "test.html.j2",
+        meta = meta,
+        colorcode = colorcode
+    )
 
 @app.route("/rgb-hex/<colorcode>")
 def color_detail_rgb_hex(colorcode):
