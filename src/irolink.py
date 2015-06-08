@@ -7,7 +7,7 @@ app.jinja_loader = FileSystemLoader('views')
 
 @app.route('/assets/<path:path>')
 def send_assets(path):
-    return send_from_directory('static/assets', path)
+    return app.send_static_file(path)
 
 @app.route('/favicon.ico')
 def send_favicon():
