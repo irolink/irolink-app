@@ -5,6 +5,10 @@ import re
 app = Flask(__name__, static_url_path='')
 #app.jinja_loader = FileSystemLoader('views')
 
+@app.errorhandler(404)
+def page_not_found(error):
+    return render_template('errors/404.html'), 404
+
 @app.route('/assets/<path:path>')
 def send_assets(path):
     return app.send_static_file('assets/' + path)
