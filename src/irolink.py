@@ -35,7 +35,7 @@ def color_detail_rgb_hex(colorcode):
         debug_str = "Color Detail RGB Hex %s" % (colorcode)
     else :
         debug_str = "Color Detail Error"
-    return debug_str
+    return render_template("color-detail-rgb-hex.html")
 
 @app.route("/rgba-hex/<colorcode>")
 def color_detail_rgba_hex(colorcode):
