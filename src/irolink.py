@@ -37,12 +37,12 @@ def color_detail_rgb_hex(code):
     if not re.match(r"^([0-9a-zA-Z]){6}$", code):
         abort(404)
     debug_str = "Color Detail RGB Hex %s" % (code)
-    colorcode = '#' + code
-    colorcode_text = code
+    colorcode_text = '#' + code
+    colorcode_link = code
     return render_template(
         "color-detail-rgb-hex.html",
-        colorcode = colorcode,
-        colorcode_text = colorcode_text
+        colorcode_text = colorcode_text,
+        colorcode_link = colorcode_link
     )
 
 @app.route("/rgba-hex/<colorcode>")
