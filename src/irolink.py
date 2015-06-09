@@ -34,8 +34,13 @@ def color_detail_rgb_hex(colorcode):
     if re.match(r"^([0-9a-zA-Z]){6}$", colorcode) :
         debug_str = "Color Detail RGB Hex %s" % (colorcode)
     else :
-        debug_str = "Color Detail Error"
-    return render_template("color-detail-rgb-hex.html")
+        return "Color Detail Error"
+    return render_template(
+        "color-detail-rgb-hex.html",
+        colorcode = colorcode,
+        display_colorcode = colorcode,
+        raw_colorcode = colorcode
+    )
 
 @app.route("/rgba-hex/<colorcode>")
 def color_detail_rgba_hex(colorcode):
