@@ -7,7 +7,7 @@ app = Flask(__name__, static_url_path='')
 
 @app.route('/assets/<path:path>')
 def send_assets(path):
-    return app.send_static_file(path)
+    return app.send_static_file('assets/' + path)
 
 @app.route('/favicon.ico')
 def send_favicon():
