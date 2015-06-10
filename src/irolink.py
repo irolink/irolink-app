@@ -1,41 +1,23 @@
-from flask import Flask, request, redirect, render_template, url_for
-#from jinja2 import FileSystemLoader
+from flask import Flask, request, redirect, render_template, abort
 import re
 
 app = Flask(__name__, static_url_path='')
-#app.jinja_loader = FileSystemLoader('views')
-
-@app.errorhandler(404)
-def page_not_found(error):
-    return render_template('errors/404.html'), 404
-
-@app.route('/assets/<path:path>')
-def send_assets(path):
-    return app.send_static_file('assets/' + path)
-
-@app.route('/favicon.ico')
-def send_favicon():
-    return app.send_static_file('favicon.ico')
-
-@app.route('/robots.txt')
-def send_robots():
-    return app.send_static_file('robots.txt')
 
 @app.route('/')
-def root():
+def show_root():
     return render_template(
-        "test.html",
-        name = "hoge"
+        'test.html',
+        name = 'hoge'
     )
 
 @app.route('/test/')
 def show_test():
-    return render_template("test.html")
+    return render_template('test.html')
 
 @app.route('/rgb-hex/<code>')
 def color_detail_rgb_hex(code):
-    if not re.match(r"^([0-9a-zA-Z]){6}$", code):
-        return page_not_found()
+    if not re.match(r'^([0-9a-zA-Z]){6}$', code):
+        abort(404)
     #if re.match(r'([A-Z])', code):
     #    return redirect('/rgb-hex/' + code.lower())
     r_hex = code[0:2]
@@ -53,7 +35,7 @@ def color_detail_rgb_hex(code):
     cvs_rgb_dec_css = 'rgb(%s, %s, %s)' % (r_dec, g_dec, b_dec)
     cvs_rgb_hex_def = '#' + code
     cvs_rgb_hex_css = '#' + code
-    #cvs_rgb_percent = 
+    #cvs_rgb_percent =
     return render_template(
         'color-detail-rgb-hex.html',
         colorcode_text = colorcode_text,
@@ -101,6 +83,22 @@ def color_detail(colorcode):
     else :
         debug_str = "Color Detail Error"
     return debug_str
+
+@app.route('/assets/<path:path>')
+def send_assets(path):
+    return app.send_static_file('assets/' + path)
+
+@app.route('/favicon.ico')
+def send_favicon():
+    return app.send_static_file('favicon.ico')
+
+@app.route('/robots.txt')
+def send_robots():
+    return app.send_static_file('robots.txt')
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('errors/404.html'), 404
 
 if __name__ == "__main__":
     app.run()
