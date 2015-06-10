@@ -44,32 +44,39 @@ def color_detail_rgb_hex(code):
     r_dec = int(r_hex, 16)
     g_dec = int(g_hex, 16)
     b_dec = int(b_hex, 16)
+    r_percent = r_dec / 256 * 100
+    g_percent = g_dec / 256 * 100
+    b_percent = b_dec / 256 * 100
     colorcode_text = '#' + code
     colorcode_link = code
-    cvs_rgbdec_def = '%s, %s, %s' % (r_hex, g_hex, b_hex)
-    cvs_rgbdec_css = 'rgb(%s, %s, %s)' % (r_dec, g_dec, b_dec)
-    cvs_rgbhex_def = '#' + code
-    cvs_rgbhex_css = '#' + code
+    cvs_rgb_dec_def = '%s, %s, %s' % (r_dec, g_dec, b_dec)
+    cvs_rgb_dec_css = 'rgb(%s, %s, %s)' % (r_dec, g_dec, b_dec)
+    cvs_rgb_hex_def = '#' + code
+    cvs_rgb_hex_css = '#' + code
+    #cvs_rgb_percent = 
     return render_template(
         'color-detail-rgb-hex.html',
         colorcode_text = colorcode_text,
         colorcode_link = colorcode_link,
-        cvs_rgbdec_def = cvs_rgbdec_def,
-        cvs_rgbdec_css = cvs_rgbdec_css,
-        cvs_rgbhex_def = cvs_rgbhex_def,
-        cvs_rgbhex_css = cvs_rgbhex_css
+        cvs_rgbdec_def = cvs_rgb_dec_def,
+        cvs_rgbdec_css = cvs_rgb_dec_css,
+        cvs_rgbhex_def = cvs_rgb_hex_def,
+        cvs_rgbhex_css = cvs_rgb_hex_css,
+        r_percent = r_percent,
+        g_percent = g_percent,
+        b_percent = b_percent
     )
 
-@app.route("/rgba-hex/<colorcode>")
+@app.route('/rgba-hex/<colorcode>')
 def color_detail_rgba_hex(colorcode):
     debug_str = ""
-    if re.match(r"^([0-9a-zA-Z]){8}$", colorcode) :
+    if re.match(r'^([0-9a-zA-Z]){8}$', colorcode) :
         debug_str = "Color Detail RGBa Hex %s" % (colorcode)
     else :
         debug_str = "Color Detail Error"
     return debug_str
 
-@app.route("/rgb-dec/<colorcode>")
+@app.route('/rgb-dec/<colorcode>')
 def color_detail_rgb_dec(colorcode):
     debug_str = ""
     if re.match(r"^([0-9]){1,3},([0-9]){1,3},([0-9]){1,3}$", colorcode) :
@@ -78,7 +85,7 @@ def color_detail_rgb_dec(colorcode):
         debug_str = "Color Detail Error"
     return debug_str
 
-@app.route("/color/<colorcode>")
+@app.route('/color/<colorcode>')
 def color_detail(colorcode):
     debug_str = ""
     if re.match(r"^([0-9a-zA-Z]){6}$", colorcode) :
