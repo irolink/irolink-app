@@ -40,7 +40,7 @@ def color_detail_rgb_hex(code):
         return redirect('/rgb-hex/' + code.lower())
     r_hex = code[0:2]
     g_hex = code[2:4]
-    b_hex = code[4:6]
+    b_hex = code[4:-1]
     r_dec = int(r_hex, 16)
     g_dec = int(g_hex, 16)
     b_dec = int(b_hex, 16)
