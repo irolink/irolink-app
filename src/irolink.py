@@ -35,8 +35,10 @@ def show_test():
 @app.route('/rgb-hex/<code>')
 def color_detail_rgb_hex(code):
     if not re.match(r"^([0-9a-zA-Z]){6}$", code):
-        app.abort(404)
-    code = code.lower()
+        return page_not_found()
+    if re.match(r'[A-Z]', code):
+        return redirect('/rgb-hex/' + code.lower())
+    #code = code.lower()
     colorcode_text = '#' + code
     colorcode_link = code
     cvs_rgbdec_def = "%s, %s, %s" % (1, 2, 3)
