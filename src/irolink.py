@@ -26,27 +26,42 @@ def color_detail_rgb_hex(code):
     r_dec = int(r_hex, 16)
     g_dec = int(g_hex, 16)
     b_dec = int(b_hex, 16)
-    r_percent = r_dec / 256 * 100
-    g_percent = g_dec / 256 * 100
-    b_percent = b_dec / 256 * 100
+    r_percent = float(r_dec) / 256 * 100
+    g_percent = float(g_dec) / 256 * 100
+    b_percent = float(b_dec) / 256 * 100
+
+    # cmyk
+    black = min(1 - r_dec / 255, min(1 - g_dec / 255, 1 - b_dec / 255))
+    cmyk_c = (1 - (r_dec / 255) - black) / (1 - black)
+    cmyk_m = (1 - (g_dec / 255) - black) / (1 - black)
+    cmyk_y = (1 - (b_dec / 255) - black) / (1 - black)
+    cmyk_k = black
+
+    rgb_hex = {'r': r_hex, 'g': g_hex, 'b': b_hex}
+    rgb_dec = {'r': r_dec, 'g': g_dec, 'b': b_dec}
+    rgb_percent = {'r': r_percent, 'g': g_percent, 'b': b_percent}
+    cmyk = {'c': cmyk_c, 'm': cmyk_m, 'y': cmyk_y, 'k': cmyk_k}
+
     colorcode_text = '#' + code
     colorcode_link = code
-    cvs_rgb_dec_def = '%s, %s, %s' % (r_dec, g_dec, b_dec)
-    cvs_rgb_dec_css = 'rgb(%s, %s, %s)' % (r_dec, g_dec, b_dec)
-    cvs_rgb_hex_def = '#' + code
-    cvs_rgb_hex_css = '#' + code
     #cvs_rgb_percent =
     return render_template(
         'color-detail-rgb-hex.html',
         colorcode_text = colorcode_text,
         colorcode_link = colorcode_link,
-        cvs_rgbdec_def = cvs_rgb_dec_def,
-        cvs_rgbdec_css = cvs_rgb_dec_css,
-        cvs_rgbhex_def = cvs_rgb_hex_def,
-        cvs_rgbhex_css = cvs_rgb_hex_css,
-        r_percent = r_percent,
-        g_percent = g_percent,
-        b_percent = b_percent
+        rgb_hex_r = r_hex,
+        rgb_hex_g = g_hex,
+        rgb_hex_b = b_hex,
+        rgb_dec_r = r_dec,
+        rgb_dec_g = g_dec,
+        rgb_dec_b = b_dec,
+        rgb_percent_r = r_percent,
+        rgb_percent_g = g_percent,
+        rgb_percent_b = b_percent,
+        rgb_hex = rgb_hex,
+        rgb_dec = rgb_dec,
+        rgb_percent = rgb_percent,
+        cmyk = cmyk
     )
 
 @app.route('/rgba-hex/<colorcode>')
