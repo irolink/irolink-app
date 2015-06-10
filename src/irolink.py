@@ -36,11 +36,11 @@ def show_test():
 def color_detail_rgb_hex(code):
     if not re.match(r"^([0-9a-zA-Z]){6}$", code):
         return page_not_found()
-    if re.match(r'([A-Z]+)', code):
+    if re.match(r'(+[A-Z])', code):
         return redirect('/rgb-hex/' + code.lower())
-    r_hex = code[0:1]
-    g_hex = code[2:3]
-    b_hex = code[4:5]
+    r_hex = code[0:2]
+    g_hex = code[2:4]
+    b_hex = code[4:6]
     r_dec = int(r_hex, 16)
     g_dec = int(g_hex, 16)
     b_dec = int(b_hex, 16)
