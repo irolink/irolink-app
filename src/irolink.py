@@ -35,7 +35,8 @@ def show_test():
 @app.route('/rgb-hex/<code>')
 def color_detail_rgb_hex(code):
     if not re.match(r"^([0-9a-zA-Z]){6}$", code):
-        abort(404)
+        app.abort(404)
+    code = code.lowercase
     colorcode_text = '#' + code
     colorcode_link = code
     cvs_rgbdec_def = "%s, %s, %s" % (1, 2, 3)
