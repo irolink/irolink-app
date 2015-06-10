@@ -26,7 +26,7 @@
                                     Color Description
                                 </h1>
                                 <p class="color-sentence">
-                                    The <a href="/rgb-hex/{{ colorcode_link }}">{{ colorcode_text|e }}</a> is the Hexadecimal RGB Color space. It is a composed in red of 11.8%, green of 56.5%, blue of 100%.
+                                The <a href="/rgb-hex/{{ colorcode_link }}">{{ colorcode_text|e }}</a> is the Hexadecimal RGB Color space. It is a composed in red of {{ rgb_percent.r|round|e }}%, green of {{ rgb_percent.g|round|e }}%, blue of {{ rgb_percent.b|round|e }}%.
                                     If you converting to CMYK Color space from this color space, it is a composed in cyan of 12%, magenta of 23%, yellow of 0%, black of 0%.
                                 </p>
                                 <div class="color-chart">
@@ -41,18 +41,18 @@
                                    <li>
                                         <span class="color-code-name" >RGB Decimal</span>
                                     
-                                        <span class="color-code-value">{{ cvs_rgbdec_def|e }}</span>
-                                        <span class="color-code-input"><input type="text" value="{{ cvs_rgbdec_css|e }}" readonly></span>
+                                        <span class="color-code-value">{{ rgb_dec.r|e }}, {{ rgb_dec.g|e }}, {{ rgb_dec.b|e }}</span>
+                                        <span class="color-code-input"><input type="text" value="{{ rgb_dec_r|e }}, {{ rgb_dec_g|e }}, {{ rgb_dec_b|e }}" readonly></span>
                                     </li>
                                    <li>
                                         <span class="color-code-name" >RGB Hexadecimal</span>
-                                        <span class="color-code-value">{{ cvs_rgbhex_def|e }}</span>
-                                        <span class="color-code-input"><input type="text" value="{{ cvs_rgbhex_css|e }}" readonly></span>
+                                        <span class="color-code-value">{{ rgb_hex.r|e }}, {{ rgb_hex.g|e }}, {{ rgb_hex.b|e }}</span>
+                                        <span class="color-code-input"><input type="text" value="#{{ rgb_hex.r|e }}, {{ rgb_hex.g|e }}, {{ rgb_hex.b|e }}" readonly></span>
                                    </li>
                                    <li>
                                         <span class="color-code-name" >RGB Percent</span>
-                                        <span class="color-code-value">11.8%, 56.5%, 100%</span>
-                                        <span class="color-code-input"><input type="text" value="rgb(11.8%, 56.5%, 100%)" readonly></span>
+                                        <span class="color-code-value">{{ rgb_percent.r|round|e }}%, {{ rgb_percent.g|round|e }}%, {{ rgb_percent.b|round|e }}%</span>
+                                        <span class="color-code-input"><input type="text" value="rgb({{ rgb_percent.r|round|e }}%, {{ rgb_percent.g|round|e }}%, {{ rgb_percent.b|round|e }}%)" readonly></span>
                                    </li>
                                    <li>
                                         <span class="color-code-name" >CMYK</span>
