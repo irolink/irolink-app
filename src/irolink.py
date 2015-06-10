@@ -32,17 +32,24 @@ def root():
 def show_test():
     return render_template("test.html")
 
-@app.route("/rgb-hex/<code>")
+@app.route('/rgb-hex/<code>')
 def color_detail_rgb_hex(code):
     if not re.match(r"^([0-9a-zA-Z]){6}$", code):
         abort(404)
-    debug_str = "Color Detail RGB Hex %s" % (code)
     colorcode_text = '#' + code
     colorcode_link = code
+    cvs_rgbdec_def = "%s, %s, %s" % (1, 2, 3)
+    cvs_rgbdec_css = "rgb(%s, %s, %s)" % (1, 2, 3)
+    cvs_rgbhex_def = '#' + code
+    cvs_rgbhex_css = '#' + code
     return render_template(
         "color-detail-rgb-hex.html",
         colorcode_text = colorcode_text,
-        colorcode_link = colorcode_link
+        colorcode_link = colorcode_link,
+        cvs_rgbdec_def = cvs_rgbdec_def,
+        cvs_rgbdec_css = cvs_rgbdec_css,
+        cvs_rgbhex_def = cvs_rgbhex_def,
+        cvs_rgbhex_css = cvs_rgbhex_css
     )
 
 @app.route("/rgba-hex/<colorcode>")
