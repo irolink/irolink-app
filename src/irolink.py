@@ -18,8 +18,8 @@ def show_test():
 def color_detail_rgb_hex(code):
     if not re.match(r'^([0-9a-zA-Z]){6}$', code):
         abort(404)
-    #if re.match(r'([A-Z])', code):
-    #    return redirect('/rgb-hex/' + code.lower())
+    if re.match(r'.*[A-Z].*', code):
+        return redirect('/rgb-hex/' + code.lower())
     r_hex = code[0:2]
     g_hex = code[2:4]
     b_hex = code[4:6]
