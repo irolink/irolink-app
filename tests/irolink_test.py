@@ -10,6 +10,18 @@ class IROLiNKTest(unittest.TestCase):
         irolink.app.debug = False
         self.app = irolink.app.test_client()
 
+    def test_show_default_01(self):
+        raw_response = self.app.get(
+            '/'
+        )
+        assert raw_response.status_code == 200
+
+    def test_show_test_01(self):
+        raw_response = self.app.get(
+            '/test/'
+        )
+        assert raw_response.status_code == 200
+
     def test_show_rgb_hex_01(self):
         raw_response = self.app.get(
             '/rgb-hex/ffffff'
