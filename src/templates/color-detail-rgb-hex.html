@@ -51,11 +51,11 @@
                                <ul class="color-code-table">
                                    <li>
                                         <span class="color-code-name" title="Hexadecimal of Red, Green, Blue">RGB Hexadecimal</span>
-                                        <span class="color-code-value">{{ rgb_hex.r|e }}, {{ rgb_hex.g|e }}, {{ rgb_hex.b|e }}</span>
+                                        <span class="color-code-value">#{{ rgb_hex.r|e }}{{ rgb_hex.g|e }}{{ rgb_hex.b|e }}</span>
                                         <span class="color-code-input">
                                             <input 
                                                 type="text" 
-                                                value="#{{ rgb_hex.r|e }}, {{ rgb_hex.g|e }}, {{ rgb_hex.b|e }}" 
+                                                value="#{{ rgb_hex.r|e }}{{ rgb_hex.g|e }}{{ rgb_hex.b|e }}" 
                                                 readonly>
                                         </span>
                                    </li>
