@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>{{ colorcode_text|e }} Hexadecimal RGB Color >> IROLiNK</title>
+        <meta name="description" content="{{ colorcode_text|e }} Hexadecimal RGB color code information, schemes, description and conversion in RGB, CMYK, HSL, HSV, etc." />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="/assets/css/style.css">
     </head>
@@ -26,8 +27,8 @@
                                     Color Description
                                 </h1>
                                 <p class="color-sentence">
-                                The <a href="/rgb-hex/{{ colorcode_link }}">{{ colorcode_text|e }}</a> is the Hexadecimal RGB Color space. It is a composed in red of {{ rgb_percent.r|round|e }}%, green of {{ rgb_percent.g|round|e }}%, blue of {{ rgb_percent.b|round|e }}%.
-                                    If you converting to CMYK Color space from this color space, it is a composed in cyan of 12%, magenta of 23%, yellow of 0%, black of 0%.
+                                    The <a href="/rgb-hex/{{ colorcode_link }}">{{ colorcode_text|e }}</a> is the Hexadecimal RGB Color space. It is a composed in red of {{ rgb_percent.r|round(1)|e }}%, green of {{ rgb_percent.g|round(1)|e }}%, blue of {{ rgb_percent.b|round(1)|e }}%.
+                                    If you converting to CMYK Color space from this color space, it is a composed in cyan of {{ cmyk.c|round(1)|e }}%, magenta of {{ cmyk.m|round(1)|e }}%, yellow of {{ cmyk.y|round(1)|e }}%, black of {{ cmyk.k|round(1)|e }}%.
                                 </p>
                                 <div class="color-chart">
                                     <img src="http://placehold.it/200/{{ colorcode_link }}/ffffff&text=%20" width="100%" height="100" alt="{{ colorcode_text|e }}">
@@ -39,30 +40,64 @@
                                 </h1>
                                <ul class="color-code-table">
                                    <li>
-                                        <span class="color-code-name" >RGB Decimal</span>
-                                    
+                                        <span class="color-code-name" title="Hexadecimal of Red, Green, Blue">RGB Hexadecimal</span>
+                                        <span class="color-code-value">{{ rgb_hex.r|e }}, {{ rgb_hex.g|e }}, {{ rgb_hex.b|e }}</span>
+                                        <span class="color-code-input">
+                                            <input 
+                                                type="text" 
+                                                value="#{{ rgb_hex.r|e }}, {{ rgb_hex.g|e }}, {{ rgb_hex.b|e }}" 
+                                                readonly>
+                                        </span>
+                                   </li>
+                                   <li>
+                                        <span class="color-code-name" title="Decimal of Red, Green, Blue">RGB Decimal</span>
                                         <span class="color-code-value">{{ rgb_dec.r|e }}, {{ rgb_dec.g|e }}, {{ rgb_dec.b|e }}</span>
-                                        <span class="color-code-input"><input type="text" value="{{ rgb_dec_r|e }}, {{ rgb_dec_g|e }}, {{ rgb_dec_b|e }}" readonly></span>
+                                        <span class="color-code-input">
+                                            <input 
+                                                type="text" 
+                                                value="{{ rgb_dec_r|e }}, {{ rgb_dec_g|e }}, {{ rgb_dec_b|e }}" 
+                                                readonly>
+                                        </span>
                                     </li>
                                    <li>
-                                        <span class="color-code-name" >RGB Hexadecimal</span>
-                                        <span class="color-code-value">{{ rgb_hex.r|e }}, {{ rgb_hex.g|e }}, {{ rgb_hex.b|e }}</span>
-                                        <span class="color-code-input"><input type="text" value="#{{ rgb_hex.r|e }}, {{ rgb_hex.g|e }}, {{ rgb_hex.b|e }}" readonly></span>
-                                   </li>
-                                   <li>
-                                        <span class="color-code-name" >RGB Percent</span>
+                                        <span class="color-code-name" title="Percent of Red, Green, Blue">RGB Percent</span>
                                         <span class="color-code-value">{{ rgb_percent.r|round|e }}%, {{ rgb_percent.g|round|e }}%, {{ rgb_percent.b|round|e }}%</span>
-                                        <span class="color-code-input"><input type="text" value="rgb({{ rgb_percent.r|round|e }}%, {{ rgb_percent.g|round|e }}%, {{ rgb_percent.b|round|e }}%)" readonly></span>
+                                        <span class="color-code-input">
+                                            <input 
+                                                type="text" 
+                                                value="rgb({{ rgb_percent.r|round|e }}%, {{ rgb_percent.g|round|e }}%, {{ rgb_percent.b|round|e }}%)" 
+                                                readonly>
+                                        </span>
                                    </li>
                                    <li>
-                                        <span class="color-code-name" >CMYK</span>
-                                        <span class="color-code-value">11.8%, 56.5%, 100%</span>
-                                        <span class="color-code-input"><input type="text" value="rgb(11.8%, 56.5%, 100%)" readonly></span>
+                                        <span class="color-code-name" title="Cyan Magenda Yellow Black">CMYK</span>
+                                        <span class="color-code-value">{{ cmyk.c|round(0)|int|e }}, {{ cmyk.m|round(0)|int|e }}, {{ cmyk.y|round(0)|int|e }}, {{ cmyk.k|round(0)|int|e }}</span>
+                                        <span class="color-code-input">
+                                            <input 
+                                                type="text" 
+                                                value="cmyk({{ cmyk.c|round(0)|int|e }}, {{ cmyk.m|round(0)|int|e }}, {{ cmyk.y|round(0)|int|e }}, {{ cmyk.k|round(0)|int|e }})" 
+                                                readonly>
+                                        </span>
                                    </li>
                                    <li>
-                                        <span class="color-code-name" >HSV</span>
-                                        <span class="color-code-value">11.8%, 56.5%, 100%</span>
-                                        <span class="color-code-input"><input type="text" value="rgb(11.8%, 56.5%, 100%)" readonly></span>
+                                        <span class="color-code-name" title="Hue Saturation Lightness">HSL</span>
+                                        <span class="color-code-value">{{ hsl.h|e }} {{ hsl.s|e }} {{ hsl.l|e }}</span>
+                                        <span class="color-code-input">
+                                            <input 
+                                                type="text" 
+                                                value="hsl({{ hsl.h|e }} {{ hsl.s|e }} {{ hsl.l|e }})" 
+                                                readonly>
+                                        </span>
+                                   </li>
+                                   <li>
+                                        <span class="color-code-name" title="Hue Saturation Value">HSV</span>
+                                        <span class="color-code-value">{{ hsv.h|e }} {{ hsv.s|e }} {{ hsv.v|e }}</span>
+                                        <span class="color-code-input">
+                                            <input 
+                                                type="text" 
+                                                value="hsl({{ hsl.h|e }} {{ hsl.s|e }} {{ hsl.l|e }})" 
+                                                readonly>
+                                        </span>
                                    </li>
                                 </ul>
                             </section>
@@ -74,8 +109,12 @@
                                     <h1 class="color-scheme-title">Complementary Color</h1>
                                     <div class="color-scheme-list">
                                         <ul class="split-2">
-                                            <li class="color-scheme-item"><a class="invisible-text" style="background-color:#cd0000;" href="/color/cd0000">#cd0000</a></li>
-                                            <li class="color-scheme-item"><a class="invisible-text" style="background-color:#008b00;" href="/color/008b00">#008b00</a></li>
+                                            <li class="color-scheme-item">
+                                                <a class="invisible-text" style="background-color:#cd0000;" href="/color/cd0000">#cd0000</a>
+                                            </li>
+                                            <li class="color-scheme-item">
+                                                <a class="invisible-text" style="background-color:#008b00;" href="/color/008b00">#008b00</a>
+                                            </li>
                                         </ul>
                                     </div>
                                 </section>
