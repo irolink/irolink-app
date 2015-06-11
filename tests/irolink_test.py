@@ -1,4 +1,7 @@
-import sys, os, unittest
+import os
+import sys
+import unittest
+
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '/../src/')
 import irolink
 
