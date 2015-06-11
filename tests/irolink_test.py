@@ -1,4 +1,4 @@
-import sys, os, json, unittest, urllib
+import sys, os, unittest
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '/../src/')
 import irolink
 
