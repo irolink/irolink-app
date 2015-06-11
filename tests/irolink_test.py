@@ -5,9 +5,8 @@ import irolink
 
 class IROLiNKTest(unittest.TestCase):
     def setUp(self):
-        print('setup')
-        app.app.debug = False
-        self.app = app.app.test_client()
+        irolink.app.debug = False
+        self.app = irolink.app.test_client()
 
     def test_show_rgb_hex_01(self):
         raw_response = self.app.get(
