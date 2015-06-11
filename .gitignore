@@ -1,3 +1,18 @@
+# fs
+.DS_Store
+Thumbs.db
+
+# node.js
+node_modules/
+
+# python
+*.pyc
+
+# coveralls
+.coverage
+*.egg
+*.egg-info
+
 # etc.
 .vagrant/
 /vendor/
@@ -5,7 +20,3 @@
 *.swp
 *.swo
 *~
-.DS_Store
-Thumbs.db
-node_modules/
-*.pyc
