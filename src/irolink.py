@@ -10,10 +10,7 @@ app = Flask(__name__, static_url_path='')
 
 @app.route('/')
 def show_root():
-    return render_template(
-        'test.html',
-        name='hoge'
-    )
+    return render_template('default.html')
 
 
 @app.route('/test/')
