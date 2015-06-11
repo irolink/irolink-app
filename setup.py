@@ -1,13 +1,14 @@
-from setuptools import setup, find_packages
+from setuptools import find_packages
+from setuptools import setup
 import sys
 
 sys.path.append('./src')
 sys.path.append('./tests')
 
 setup(
-    name = 'IROLiNK',
-    version = '0.1',
+    name='IROLiNK',
+    version='0.1',
     description='This is test codes for travis ci',
-    packages = find_packages(),
-    test_suite = 'irolink_test.suite'
+    packages=find_packages(),
+    test_suite='irolink_test.suite'
 )
