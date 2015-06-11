@@ -14,33 +14,62 @@ def show_root():
 def show_test():
     return render_template('test.html')
 
+class ColorConvertUtil:
+    @staticmethod
+    def rgbstr_to_rgbhex(code):
+        ret = {
+            'r': code[0:2],
+            'g': code[2:4],
+            'b': code[4:6]
+        }
+        return ret
+    @staticmethod
+    def rgbhex_to_rgbdec(r, g, b):
+        ret = {
+            'r': int(r, 16),
+            'g': int(g, 16),
+            'b': int(b, 16)
+        }
+        return ret
+    @staticmethod
+    def rgbdec_to_rgbpercent(r, g, b):
+        ret = {
+            'r': float(r) / 256 * 100,
+            'g': float(g) / 256 * 100,
+            'b': float(b) / 256 * 100
+        }
+        return ret
+    @staticmethod
+    def rgbdec_to_cmyk(r, g, b):
+        return "hoge"
+        #if (r == 0) and (g == 0) and (b == 0):
+        #    return { 'c': 0, 'm': 0, 'y': 0, 'k': 100 }
+        c = 1 - r / 255
+        m = 1 - g / 255
+        y = 1 - b / 255
+        min_cmy = min(c, m, y)
+        c = (c - min_cmy) / (1 - min_cmy)
+        m = (m - min_cmy) / (1 - min_cmy)
+        y = (y - min_cmy) / (1 - min_cmy)
+        k = min_cmy
+        ret = { 'c': c*100, 'm': m*100, 'y': y*100, 'k': k*100 }
+        return ret
+
 @app.route('/rgb-hex/<code>')
 def color_detail_rgb_hex(code):
     if not re.match(r'^([0-9a-zA-Z]){6}$', code):
         abort(404)
     if re.match(r'.*[A-Z].*', code):
         return redirect('/rgb-hex/' + code.lower())
-    r_hex = code[0:2]
-    g_hex = code[2:4]
-    b_hex = code[4:6]
-    r_dec = int(r_hex, 16)
-    g_dec = int(g_hex, 16)
-    b_dec = int(b_hex, 16)
-    r_percent = float(r_dec) / 256 * 100
-    g_percent = float(g_dec) / 256 * 100
-    b_percent = float(b_dec) / 256 * 100
-
-    # cmyk
-    black = min(1 - r_dec / 255, min(1 - g_dec / 255, 1 - b_dec / 255))
-    cmyk_c = (1 - (r_dec / 255) - black) / (1 - black)
-    cmyk_m = (1 - (g_dec / 255) - black) / (1 - black)
-    cmyk_y = (1 - (b_dec / 255) - black) / (1 - black)
-    cmyk_k = black
-
-    rgb_hex = {'r': r_hex, 'g': g_hex, 'b': b_hex}
-    rgb_dec = {'r': r_dec, 'g': g_dec, 'b': b_dec}
-    rgb_percent = {'r': r_percent, 'g': g_percent, 'b': b_percent}
-    cmyk = {'c': cmyk_c, 'm': cmyk_m, 'y': cmyk_y, 'k': cmyk_k}
+    rgb_hex = ColorConvertUtil.rgbstr_to_rgbhex(code)
+    rgb_dec = ColorConvertUtil.rgbhex_to_rgbdec(
+            rgb_hex['r'], rgb_hex['g'], rgb_hex['b'])
+    rgb_percent = ColorConvertUtil.rgbdec_to_rgbpercent(
+            rgb_dec['r'], rgb_dec['g'], rgb_dec['b'])
+    #cmrk = ColorConvertUtil.rgbdec_to_cmyk(
+    #        rgb_dec['r'], rgb_dec['g'], rgb_dec['b'])
+    #return "HEX %s / DEC %s / PERCENT %s / CMYK %s" % (rgb_hex, rgb_dec, rgb_percent, cmyk)
+    return 'HEX %s / DEC %s / PERCENT %s' % (rgb_hex, rgb_dec, rgb_percent)
 
     colorcode_text = '#' + code
     colorcode_link = code
