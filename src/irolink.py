@@ -4,7 +4,6 @@ from flask import redirect
 from flask import render_template
 import colorsys
 import re
-import sys
 
 app = Flask(__name__, static_url_path='')
 
