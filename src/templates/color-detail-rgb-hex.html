@@ -55,7 +55,7 @@
                                         <span class="color-code-input">
                                             <input 
                                                 type="text" 
-                                                value="{{ rgb_dec_r|e }}, {{ rgb_dec_g|e }}, {{ rgb_dec_b|e }}" 
+                                                value="rgb({{ rgb_dec.r|e }}, {{ rgb_dec.g|e }}, {{ rgb_dec.b|e }})" 
                                                 readonly>
                                         </span>
                                     </li>
@@ -79,6 +79,7 @@
                                                 readonly>
                                         </span>
                                    </li>
+                                   <!--
                                    <li>
                                         <span class="color-code-name" title="Hue Saturation Lightness">HSL</span>
                                         <span class="color-code-value">{{ hsl.h|e }} {{ hsl.s|e }} {{ hsl.l|e }}</span>
@@ -99,6 +100,7 @@
                                                 readonly>
                                         </span>
                                    </li>
+                                   -->
                                 </ul>
                             </section>
                             <section>
