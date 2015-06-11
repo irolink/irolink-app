@@ -38,6 +38,12 @@ class IROLiNKTest(unittest.TestCase):
         )
         assert raw_response.status_code == 200
 
+    def test_show_rgb_hex_06(self):
+        raw_response = self.app.get(
+            '/rgb-hex/FFFFFF'
+        )
+        assert raw_response.status_code == 302
+
 
 def suite():
     suite = unittest.TestSuite()
