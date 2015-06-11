@@ -8,7 +8,7 @@ install:
 script:
   - flake8 . --exclude=__init__.py
   - python -m unittest discover -s tests/ -p '*_test.py'
-  - coverage run --source=irolink_test setup.py test
+  - coverage run --source=src setup.py test
 after_success:
   - coveralls
 deploy:
