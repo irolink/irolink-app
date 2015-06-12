@@ -35,6 +35,29 @@ def color_detail_rgb_hex(code):
     hsl = {'h': raw_hls[0], 's': raw_hls[2], 'l': raw_hls[1]}
     raw_hsv = colorsys.rgb_to_hsv(rgb_dec['r'], rgb_dec['g'], rgb_dec['b'])
     hsv = {'h': raw_hsv[0], 's': raw_hsv[1], 'v': raw_hsv[2]}
+
+    near_colors = []
+    num = 0
+    tmp_r = rgb_dec['r']
+    tmp_g = rgb_dec['g']
+    tmp_b = rgb_dec['b']
+    while num < 10:
+        num += 1
+        tmp_r -= 10
+        tmp_g -= 10
+        tmp_b -= 10
+        r = tmp_r | 0
+        g = tmp_g | 0
+        b = tmp_b | 0
+        #print 
+        near_colors.append({
+            'r': r,
+            'g': g,
+            'b': b
+        })
+        if (r == 0 and g == 0 and b == 0):
+            break
+
     colorcode_text = '#' + code
     colorcode_link = code
     return render_template(
