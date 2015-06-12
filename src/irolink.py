@@ -48,8 +48,7 @@ def color_detail_rgb_hex(code):
         tmp_b -= 10
         r = tmp_r | 0
         g = tmp_g | 0
-        b = tmp_b | 0
-        #print 
+        b = tmp_b | 0 
         near_colors.append({
             'r': r,
             'g': g,
