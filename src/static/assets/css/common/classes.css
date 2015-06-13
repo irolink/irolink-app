@@ -120,6 +120,14 @@
         width: 16.6%;
         display: table-cell;
     }
+    .split-10 li {
+        width: 10.0%;
+        display: table-cell;
+    }
+    .split-11 li {
+        width: 9.1%;
+        display: table-cell;
+    }
 
 
 .invisible-text {
