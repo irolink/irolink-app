@@ -6,25 +6,55 @@ from flask import g
 from flask import redirect
 from flask import render_template
 from flask import Response
+from flask.ext.babel import Babel
+from flask.ext.babel import gettext
+from jinja2 import Environment
+from jinja2.ext import i18n
 from PIL import Image
 import colorsys
 import re
 import StringIO
 
 app = Flask(__name__, static_url_path='')
+babel = Babel(app)
+jinja_env = Environment(extensions=['jinja2.ext.i18n'])
+
+
+@babel.localeselector
+def get_locale():
+    return request.accept_languages.best_match(LANGUAGES.keys())
+
+
+@app.url_defaults
+def add_language_code(endpoint, values):
+    if 'lang_code' in values or not g.lang_code:
+        return
+    if app.url_map.is_endpoint_expecting(endpoint, 'lang_code'):
+        values['lang_code'] = g.lang_code
+
+
+@app.url_value_preprocessor
+def pull_lang_code(endpoint, values):
+    g.lang_code = values.pop('lang_code', 'en')
 
 
 @app.route('/')
 def show_root():
+    return show_lang_root()
+
+
+@app.route('/<lang_code>/')
+def show_lang_root():
     return render_template('default.html')
 
 
 @app.route('/test/')
 def show_test():
-    return render_template('test.html')
+    return gettext('hoge')
+#    return render_template('test.html')
 
 
-@app.route('/rgb-hex/<code>')
+@app.route('/<lang_code>/rgb-hex/<code>')
 def color_detail_rgb_hex(code):
     if not re.match(r'^([0-9a-zA-Z]){6}$', code):
         abort(404)

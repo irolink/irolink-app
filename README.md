@@ -5,3 +5,13 @@
 
 
 ## Contribution
+
+### Translations
+
+    $ mkdir -p src/translations/
+    $ pybabel extract -F babel.cfg -o messages.pot src
+    $ pybabel init -i messages.pot -d src/translations -l ja
+    $ pybabel compile -d src/translations
+    $ pybabel update -i messages.pot -d src/translations
+
+
