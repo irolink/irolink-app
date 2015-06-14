@@ -136,8 +136,7 @@ def api_one_color_image(code):
     rgb_dec = ColorConvertUtil.rgbhex_to_rgbdec(
         rgb_hex['r'], rgb_hex['g'], rgb_hex['b'])
     try:
-        canvas = Image.new('RGB', (1, 1), (rgb_dec['r'],
-            rgb_dec['g'], rgb_dec['b']))
+        canvas = Image.new('RGB', (1, 1), (rgb_dec['r'], rgb_dec['g'], rgb_dec['b']))
         output = StringIO.StringIO()
         canvas.save(output, 'PNG')
         contents = output.getvalue()
