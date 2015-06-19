@@ -91,7 +91,7 @@ def color_detail_rgb_hex(code):
     colorcode_text = '#' + code
     colorcode_link = code
     return render_template(
-        'color-detail-rgb-hex.html',
+        'detail_rgb-hex.html',
         colorcode_text=colorcode_text,
         colorcode_link=colorcode_link,
         rgb_hex=rgb_hex,
