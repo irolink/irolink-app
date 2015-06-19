@@ -1,80 +1,46 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>IROLiNK - RGB color, CMYK, HSL, HSV informations</title>
-        <meta name="description" content="Hexadecimal RGB color code information, schemes, description and conversion in RGB Decimal, RGB Percent, CMYK, HSL, HSV, etc." />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="google-site-verification" content="Ig85mcAD-eX5I57oTDhwrZKQYATLtx3IwUXuZ8qzufU">
-        <link rel="stylesheet" href="/assets/css/style.css">
-        <script>
-            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-            ga('create', 'UA-64016413-1', 'auto');
-            ga('require', 'linkid', 'linkid.js');
-            ga('send', 'pageview');
-        </script>
-    </head>
-    <body>
-        <div class="container">
-            <header id="header">
-                <div class="line-1st"></div>
-                <div class="line-2nd"></div>
-                <div class="header-inner">
-                    <div class="header-logo"><a href="/{{ g.lang_code }}/">IROLiNK</a></div>
-                    <h1 class="header-title">RGB color, CMYK, HSL, HSV informations</h1>
-                </div>
-            </header>
-            <section id="pagebody" class="cl">
-                <div class="pagebody-inner cl">
-                    <article id="main">
-                        <h1 class="main-title">RGB color, CMYK, HSL, HSV informations</h1>
-                        <section class="color-content">
-                            <section class="color-description">
-                                <h1 class="color-headline margin-top-none">
-                                    Recommend Color
-                                </h1>
-                                <section class="color-schemes">
-                                    <div class="color-scheme-list">
-                                        <ul class="split-5">
-                                            <li class="color-scheme-item"><a class="invisible-text" style="background-color:#cd0000;" href="/rgb-hex/cd0000">#cd0000</a></li>
-                                            <li class="color-scheme-item"><a class="invisible-text" style="background-color:#008b00;" href="/rgb-hex/008b00">#008b00</a></li>
-                                            <li class="color-scheme-item"><a class="invisible-text" style="background-color:#666666;" href="/rgb-hex/666666">#666666</a></li>
-                                            <li class="color-scheme-item"><a class="invisible-text" style="background-color:#1e90ff;" href="/rgb-hex/1e90ff">#1e90ff</a></li>
-                                            <li class="color-scheme-item"><a class="invisible-text" style="background-color:#cae1ff;" href="/rgb-hex/cae1ff">#cae1ff</a></li>
-                                        </ul>
-                                    </div>
-                                </section>
-                            </section>
-                        </section>
-                    </article>
-                    <aside id="menu">
-                        <div class="menu-inner">
-                            <section class="color-content">
-                                <section class="color-description">
-                                    <h1 class="color-headline margin-top-none">Sponsored Link</h1>
-                                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                                    <!-- IROLiNK_サイドバー上部 -->
-                                    <ins class="adsbygoogle"
-                                         style="display:block"
-                                         data-ad-client="ca-pub-1182643073398882"
-                                         data-ad-slot="7117720246"
-                                         data-ad-format="auto"></ins>
-                                    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-                                </section>
-                            </section>
-                        </div>
-                    </aside>
+{% extends 'layout.html' %}
+
+{% block title %}IROLiNK - RGB color, CMYK, HSL, HSV informations{% endblock %}
+{% block description %}Hexadecimal RGB color code information, schemes, description and conversion in RGB Decimal, RGB Percent, CMYK, HSL, HSV, etc.{% endblock %}
+{% block header_title %}RGB color, CMYK, HSL, HSV informations{% endblock %}
+{% block main_title %}RGB color, CMYK, HSL, HSV informations{% endblock %}
+{% block content %}
+<article id="main">
+    <h1 class="main-title">RGB color, CMYK, HSL, HSV informations</h1>
+    <section class="color-content">
+        <section class="color-description">
+            <h1 class="color-headline margin-top-none">
+                Recommend Color
+            </h1>
+            <section class="color-schemes">
+                <div class="color-scheme-list">
+                    <ul class="split-5">
+                        <li class="color-scheme-item"><a class="invisible-text" style="background-color:#cd0000;" href="/rgb-hex/cd0000">#cd0000</a></li>
+                        <li class="color-scheme-item"><a class="invisible-text" style="background-color:#008b00;" href="/rgb-hex/008b00">#008b00</a></li>
+                        <li class="color-scheme-item"><a class="invisible-text" style="background-color:#666666;" href="/rgb-hex/666666">#666666</a></li>
+                        <li class="color-scheme-item"><a class="invisible-text" style="background-color:#1e90ff;" href="/rgb-hex/1e90ff">#1e90ff</a></li>
+                        <li class="color-scheme-item"><a class="invisible-text" style="background-color:#cae1ff;" href="/rgb-hex/cae1ff">#cae1ff</a></li>
+                    </ul>
                 </div>
             </section>
-            <footer id="footer">
-                <div class="footer-inner">
-                    <small class="footer-copyright">&copy; <a href="/">IROLiNK</a></small>
-                </div>
-            </footer>
-        </div>
-        <script src="/assets/js/script.js"></script>
-    </body>
-</html>
+        </section>
+    </section>
+</article>
+<aside id="menu">
+    <div class="menu-inner">
+        <section class="color-content">
+            <section class="color-description">
+                <h1 class="color-headline margin-top-none">Sponsored Link</h1>
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- IROLiNK_サイドバー上部 -->
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-1182643073398882"
+                     data-ad-slot="7117720246"
+                     data-ad-format="auto"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            </section>
+        </section>
+    </div>
+</aside>
+{% endblock %}
