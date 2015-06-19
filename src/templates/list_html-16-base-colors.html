@@ -1,0 +1,54 @@
+{% extends 'layout.html' %}
+
+{% block title %}HTML 16 Base Colors >> IROLiNK{% endblock %}
+{% block description %}HTML 16 Base Colors ... Hexadecimal RGB color code information, schemes, description and conversion in RGB, CMYK, HSL, HSV, etc.{% endblock %}
+{% block header_title %}HTML 16 Base Colors{% endblock %}
+{% block main_title %}HTML 16 Base Colors{% endblock %}
+{% block content %}
+<article id="main">
+    <h1 class="main-title">HTML 16 Base Colors</h1>
+    <section class="color-content">
+        <section class="color-description">
+            <h1 class="color-headline margin-top-none">
+                Color Description
+            </h1>
+            <p class="color-sentence">
+                HTML 16 Base Colors is the HTML 4.01 specification defined sixteen named colors.
+            </p>
+        </section>
+        <section>
+            <h1 class="color-headline">
+                Color List
+            </h1>
+            <section class="color-schemes">
+                <div class="color-scheme-list">
+                    <ul class="split">
+                        {% for cell in colors %}
+                            <li class="color-scheme-item">
+                                <a class="invisible-text" style="background-color:#{{ cell[1] }};" href="/rgb-hex/{{ cell[1] }}">{{ cell[0] }} ({{ cell[1] }})</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </section>
+        </section>
+    </section>
+</article>
+<aside id="menu">
+    <div class="menu-inner">
+        <section class="color-content">
+            <section class="color-description">
+                <h1 class="color-headline margin-top-none">Sponsored Link</h1>
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- IROLiNK_サイドバー上部 -->
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-1182643073398882"
+                     data-ad-slot="7117720246"
+                     data-ad-format="auto"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            </section>
+        </section>
+    </div>
+</aside>
+{% endblock %}

@@ -96,37 +96,46 @@
 }
 
 
-[class^="split-"] {
+[class^="vsplit-"] {
     width: 100%;
     display: table;
 }
-    .split-2 li {
+    .vsplit-2 li {
         width: 50%;
         display: table-cell;
     }
-    .split-3 li {
+    .vsplit-3 li {
         width: 33.3%;
         display: table-cell;
     }
-    .split-4 li {
+    .vsplit-4 li {
         width: 25.0%;
         display: table-cell;
     }
-    .split-5 li {
+    .vsplit-5 li {
         width: 20.0%;
         display: table-cell;
     }
-    .split-6 li {
+    .vsplit-6 li {
         width: 16.6%;
         display: table-cell;
     }
-    .split-10 li {
+    .vsplit-10 li {
         width: 10.0%;
         display: table-cell;
     }
-    .split-11 li {
+    .vsplit-11 li {
         width: 9.1%;
         display: table-cell;
+    }
+
+
+.split {
+    width: 100%;
+    display: block;
+}
+    .split li {
+        display: block;
     }
 
 

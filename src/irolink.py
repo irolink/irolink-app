@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
-from config.settings import LANGUAGES
 from flask import abort
 from flask import Flask
-from flask import g
 from flask import redirect
 from flask import render_template
 from flask import Response
@@ -22,6 +20,15 @@ def show_root():
 @app.route('/test/')
 def show_test():
     return render_template('test.html')
+
+
+@app.route('/html-16-base-colors')
+def show_html_16_base_colors():
+    from config.colors import HTML16COLORS
+    return render_template(
+        'list_html-16-base-colors.html',
+        colors=HTML16COLORS
+    )
 
 
 @app.route('/rgb-hex/<code>')

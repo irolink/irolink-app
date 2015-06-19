@@ -12,16 +12,17 @@
         color: #262626;
         /*padding: 5px 10px 5px;*/
         margin: 5px 10px 10px;
+        float: left;
     }
     .header-title {
         display: inline-block;
         color: #333;
         font-weight: bold;
-        padding: 10px;
+        padding: 5px;
         font-size: 80%;
         background-color: #fff;
         border-radius: 2px;
         opacity: .8;
-        margin: 0 10px;
+        margin: 5px 10px;
     }
 
