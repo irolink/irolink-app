@@ -10,6 +10,20 @@ class IROLiNKStaticTest(unittest.TestCase):
         irolink.app.debug = False
         self.app = irolink.app.test_client()
 
+    def test_css_file_01(self):
+        raw_response = self.app.get(
+            '/assets/css/style.css'
+        )
+        assert raw_response.status_code == 200
+        assert raw_response.content_type == 'text/css'
+
+    def test_js_file_01(self):
+        raw_response = self.app.get(
+            '/assets/js/script.js'
+        )
+        assert raw_response.status_code == 200
+        assert raw_response.content_type == 'text/javascript'
+
     def test_static_file_01(self):
         raw_response = self.app.get(
             '/robots.txt'
