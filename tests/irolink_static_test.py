@@ -15,20 +15,20 @@ class IROLiNKStaticTest(unittest.TestCase):
             '/assets/css/style.css'
         )
         assert raw_response.status_code == 200
-        assert raw_response.content_type == 'text/css'
+        assert raw_response.content_type == 'text/css; charset=utf-8'
 
     def test_js_file_01(self):
         raw_response = self.app.get(
             '/assets/js/script.js'
         )
         assert raw_response.status_code == 200
-        assert raw_response.content_type == 'text/javascript'
+        assert raw_response.content_type == 'application/javascript'
 
     def test_static_file_01(self):
         raw_response = self.app.get(
             '/robots.txt'
         )
-        assert raw_response.status_code == 404
+        assert raw_response.status_code == 200
 
     def test_static_file_02(self):
         raw_response = self.app.get(
