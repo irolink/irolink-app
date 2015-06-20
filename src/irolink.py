@@ -4,10 +4,8 @@ from flask import Flask
 from flask import redirect
 from flask import render_template
 from flask import Response
-from PIL import Image
 import colorsys
 import re
-import StringIO
 
 app = Flask(__name__, static_url_path='')
 
@@ -33,6 +31,7 @@ def show_html_16_base_colors():
 
 @app.route('/rgb-hex/<code>')
 def color_detail_rgb_hex(code):
+    from utils.color_convert import ColorConvertUtil
     if not re.match(r'^([0-9a-zA-Z]){6}$', code):
         abort(404)
     if re.match(r'.*[A-Z].*', code):
@@ -139,6 +138,9 @@ def color_detail_rgb_hex(code):
 
 @app.route('/api/one-color-image/<code>')
 def api_one_color_image(code):
+    from PIL import Image
+    from utils.color_convert import ColorConvertUtil
+    import StringIO
     if not re.match(r'^([0-9a-zA-Z]){6}$', code):
         abort(404)
     code = code.lower()
@@ -179,49 +181,6 @@ def send_robots():
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('errors/404.html'), 404
-
-
-class ColorConvertUtil(object):
-    @staticmethod
-    def rgbstr_to_rgbhex(code):
-        ret = {
-            'r': code[0:2],
-            'g': code[2:4],
-            'b': code[4:6]
-        }
-        return ret
-
-    @staticmethod
-    def rgbhex_to_rgbdec(r, g, b):
-        ret = {
-            'r': int(r, 16),
-            'g': int(g, 16),
-            'b': int(b, 16)
-        }
-        return ret
-
-    @staticmethod
-    def rgbdec_to_rgbpercent(r, g, b):
-        ret = {
-            'r': float(r) / 256 * 100,
-            'g': float(g) / 256 * 100,
-            'b': float(b) / 256 * 100
-        }
-        return ret
-
-    @staticmethod
-    def rgbdec_to_cmyk(r, g, b):
-        if (r == 0) and (g == 0) and (b == 0):
-            return {'c': 0, 'm': 0, 'y': 0, 'k': 100}
-        c = 1 - r / float(255)
-        m = 1 - g / float(255)
-        y = 1 - b / float(255)
-        min_cmy = min(c, m, y)
-        c = (c - min_cmy) / (1 - min_cmy)
-        m = (m - min_cmy) / (1 - min_cmy)
-        y = (y - min_cmy) / (1 - min_cmy)
-        k = min_cmy
-        return {'c': c*100, 'm': m*100, 'y': y*100, 'k': k*100}
 
 
 if __name__ == "__main__":
