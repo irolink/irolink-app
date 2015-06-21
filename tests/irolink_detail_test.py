@@ -69,7 +69,6 @@ class IROLiNKDetailTest(unittest.TestCase):
             '/rgb-hex/0000ffaa'
         )
         assert raw_response.status_code == 404
-302
 
     def test_show_rgb_hex_11(self):
         raw_response = self.app.get(
