@@ -163,4 +163,3 @@ X11COLORS = [
     ['Dark Slate Gray', '2F4F4F'],
     ['Black', '000000']
 ]
-
