@@ -15,11 +15,6 @@ def show_root():
     return render_template('default.html')
 
 
-@app.route('/test/')
-def show_test():
-    return render_template('test.html')
-
-
 @app.route('/html-16-base-colors')
 def show_html_16_base_colors():
     from config.colors import HTML16COLORS
@@ -117,32 +112,6 @@ def color_detail_rgb_hex(code):
         hsv=hsv,
         nearly_colors=nearly_colors
     )
-
-
-# @app.route('/rgba-hex/<colorcode>')
-# def color_detail_rgba_hex(colorcode):
-#     debug_str = ""
-#     if re.match(r'^([0-9a-zA-Z]){8}$', colorcode):
-#         debug_str = "Color Detail RGBa Hex %s" % (colorcode)
-#     else:
-#         debug_str = "Color Detail Error"
-#     return debug_str
-#
-#
-# @app.route('/rgb-dec/<colorcode>')
-# def color_detail_rgb_dec(colorcode):
-#     debug_str = ""
-#     if re.match(r"^([\d]){1,3},([\d]){1,3},([\d]){1,3}$", colorcode):
-#         debug_str = "Color Detail RGB Dec %s" % (colorcode)
-#     else:
-#         debug_str = "Color Detail Error"
-#     return debug_str
-#
-#
-# @app.route('/color/<name>')
-# def color_detail(name):
-#     debug_str = "Color Name = %s" % (name)
-#     return debug_str
 
 
 @app.route('/api/one-color-image/<code>')

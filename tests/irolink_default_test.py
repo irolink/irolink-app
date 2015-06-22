@@ -16,12 +16,6 @@ class IROLiNKTest(unittest.TestCase):
         )
         assert raw_response.status_code == 200
 
-    def test_show_test_01(self):
-        raw_response = self.app.get(
-            '/test/'
-        )
-        assert raw_response.status_code == 200
-
 
 def suite():
     suite = unittest.TestSuite()

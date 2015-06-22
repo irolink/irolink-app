@@ -16,6 +16,12 @@ class IROLiNKListTest(unittest.TestCase):
         )
         assert raw_response.status_code == 200
 
+    def test_show_x11color_01(self):
+        raw_response = self.app.get(
+            '/x11-colors'
+        )
+        assert raw_response.status_code == 200
+
 
 def suite():
     suite = unittest.TestSuite()
