@@ -159,3 +159,10 @@
     }
 
 
+.color-table-list {
+    list-style: disc inside;
+}
+    .color-table-list li {
+    }
+
+

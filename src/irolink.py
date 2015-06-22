@@ -29,6 +29,15 @@ def show_html_16_base_colors():
     )
 
 
+@app.route('/x11-colors')
+def show_x11_colors():
+    from config.colors import X11COLORS
+    return render_template(
+        'list_x11-colors.html',
+        colors=X11COLORS
+    )
+
+
 @app.route('/rgb-hex/<code>')
 def color_detail_rgb_hex(code):
     from utils.color_convert import ColorConvertUtil
