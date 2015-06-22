@@ -7,6 +7,7 @@ TEST_TARGETS = [
     'irolink_list_test',
     'irolink_detail_test',
     'irolink_static_test',
+    'irolink_api_image_test',
     'irolink_utils_color_convert_test',
 ]
 
