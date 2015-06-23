@@ -119,14 +119,15 @@ def api_one_color_image(code):
     from PIL import Image
     from utils.color_convert import ColorConvertUtil
     import StringIO
-    if not re.match(r'^([0-9a-zA-Z]){6}$', code):
-        abort(404)
-    code = code.lower()
-    rgb_hex = ColorConvertUtil.rgbstr_to_rgbhex(code)
-    rgb_dec = ColorConvertUtil.rgbhex_to_rgbdec(
-        rgb_hex['r'], rgb_hex['g'], rgb_hex['b'])
     try:
-        canvas = Image.new('RGB', (1, 1), (rgb_dec['r'], rgb_dec['g'], rgb_dec['b']))
+        if not re.match(r'^([0-9a-zA-Z]){6}$', code):
+            raise Exception('Invalid color code', code)
+        code = code.lower()
+        rgb_hex = ColorConvertUtil.rgbstr_to_rgbhex(code)
+        rgb_dec = ColorConvertUtil.rgbhex_to_rgbdec(
+            rgb_hex['r'], rgb_hex['g'], rgb_hex['b'])
+        canvas = Image.new('RGB', (1, 1),
+            (rgb_dec['r'], rgb_dec['g'], rgb_dec['b']))
         output = StringIO.StringIO()
         canvas.save(output, 'PNG')
         contents = output.getvalue()
@@ -137,8 +138,7 @@ def api_one_color_image(code):
         print 'args:' + str(e.args)
         print 'message:' + e.message
         print 'e: ' + str(e)
-        error = e.message
-    return error
+    abort(404)
 
 
 @app.route('/assets/<path:path>')
